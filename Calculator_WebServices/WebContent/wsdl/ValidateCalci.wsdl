@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://calci.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://calci.com" xmlns:intf="http://calci.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://calci.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="divide">
+    <complexType>
+     <sequence>
+      <element name="number1" type="xsd:float"/>
+      <element name="number2" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="divideResponse">
+    <complexType>
+     <sequence>
+      <element name="divideReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="multiply">
+    <complexType>
+     <sequence>
+      <element name="number1" type="xsd:float"/>
+      <element name="number2" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="multiplyResponse">
+    <complexType>
+     <sequence>
+      <element name="multiplyReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addNumbers">
+    <complexType>
+     <sequence>
+      <element name="number1" type="xsd:float"/>
+      <element name="number2" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addNumbersResponse">
+    <complexType>
+     <sequence>
+      <element name="addNumbersReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subTract">
+    <complexType>
+     <sequence>
+      <element name="number1" type="xsd:float"/>
+      <element name="number2" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subTractResponse">
+    <complexType>
+     <sequence>
+      <element name="subTractReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="subTractResponse">
+
+      <wsdl:part element="impl:subTractResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="multiplyResponse">
+
+      <wsdl:part element="impl:multiplyResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addNumbersResponse">
+
+      <wsdl:part element="impl:addNumbersResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="addNumbersRequest">
+
+      <wsdl:part element="impl:addNumbers" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="multiplyRequest">
+
+      <wsdl:part element="impl:multiply" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="subTractRequest">
+
+      <wsdl:part element="impl:subTract" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="divideRequest">
+
+      <wsdl:part element="impl:divide" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="divideResponse">
+
+      <wsdl:part element="impl:divideResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ValidateCalci">
+
+      <wsdl:operation name="divide">
+
+         <wsdl:input message="impl:divideRequest" name="divideRequest"/>
+
+         <wsdl:output message="impl:divideResponse" name="divideResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiply">
+
+         <wsdl:input message="impl:multiplyRequest" name="multiplyRequest"/>
+
+         <wsdl:output message="impl:multiplyResponse" name="multiplyResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addNumbers">
+
+         <wsdl:input message="impl:addNumbersRequest" name="addNumbersRequest"/>
+
+         <wsdl:output message="impl:addNumbersResponse" name="addNumbersResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subTract">
+
+         <wsdl:input message="impl:subTractRequest" name="subTractRequest"/>
+
+         <wsdl:output message="impl:subTractResponse" name="subTractResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ValidateCalciSoapBinding" type="impl:ValidateCalci">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="divide">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="divideRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="divideResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiply">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="multiplyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="multiplyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addNumbers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addNumbersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addNumbersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subTract">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subTractRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subTractResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ValidateCalciService">
+
+      <wsdl:port binding="impl:ValidateCalciSoapBinding" name="ValidateCalci">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServices_Calculator/services/ValidateCalci"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

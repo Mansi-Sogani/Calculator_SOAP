@@ -1,0 +1,42 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ValidateCalciService WSDL service -->
+
+  <service name="ValidateCalci" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://calci.com"/>
+      <parameter name="wsdlServiceElement" value="ValidateCalciService"/>
+      <parameter name="schemaQualified" value="http://calci.com"/>
+      <parameter name="wsdlServicePort" value="ValidateCalci"/>
+      <parameter name="className" value="com.calci.ValidateCalciSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ValidateCalci"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="divide" qname="operNS:divide" xmlns:operNS="http://calci.com" returnQName="retNS:divideReturn" xmlns:retNS="http://calci.com" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number1" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:number2" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="multiply" qname="operNS:multiply" xmlns:operNS="http://calci.com" returnQName="retNS:multiplyReturn" xmlns:retNS="http://calci.com" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number1" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:number2" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addNumbers" qname="operNS:addNumbers" xmlns:operNS="http://calci.com" returnQName="retNS:addNumbersReturn" xmlns:retNS="http://calci.com" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number1" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:number2" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="subTract" qname="operNS:subTract" xmlns:operNS="http://calci.com" returnQName="retNS:subTractReturn" xmlns:retNS="http://calci.com" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:number1" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:number2" xmlns:pns="http://calci.com" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="subTract addNumbers divide multiply"/>
+
+  </service>
+</deployment>
